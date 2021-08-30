@@ -6,14 +6,17 @@ namespace HomeWork3_10_3_
     {
         static void Main(string[] args)
         {
-            /*Задание 3. Реализация игры с компьютером
-              * 
-              * Правила:
-              * Загадывается число от 12 до 120, причем случайным образом. Назовем его gameNumber.
-              * Игроки по очереди выбирают число от одного до четырех. Пусть это число обозначается как userTry.
-              * userTry после каждого хода вычитается из gameNumber, а само gameNumber выводится на экран.
-              * Если после хода игрока gameNumber равняется нулю, то походивший игрок объявляется победителем.
-              */
+            //Задание 3. Реализация игры с компьютером
+
+            Console.ForegroundColor = ConsoleColor.Green; //Цвет текста выводимый далее в консоль зеленый
+            Console.WriteLine("Правила игры:");
+            Console.WriteLine("Загадывается число от 12 до 120, причем случайным образом. Назовем его gameNumber.");
+            Console.WriteLine("Игроки по очереди выбирают число от одного до четырех. Пусть это число обозначается как userTry.");
+            Console.WriteLine("userTry после каждого хода вычитается из gameNumber, а само gameNumber выводится на экран.");
+            Console.WriteLine("Если после хода игрока gameNumber равняется нулю, то походивший игрок объявляется победителем.");
+            Console.WriteLine("Число четыре вводить нельзя, если userTry больше чем gameNumber");
+            Console.ResetColor(); //Сброс цвета на стандартный
+            Console.WriteLine();
 
             Random rand = new Random(); //добавление генератора случайных чисел
 
@@ -21,7 +24,6 @@ namespace HomeWork3_10_3_
             Console.WriteLine("Ваш соперник персональный компьютер"); string gamer2 = "pc"; //объявление переменной для имени компьютера
 
             int gameNumber;
-            int minNumberMoves;
             int userTry;
             int userTryPC = 3;
             string revansh = "да"; //переменная для возможного реванша
@@ -31,7 +33,7 @@ namespace HomeWork3_10_3_
 
                 gameNumber = rand.Next(12, 121); //добавление генератора случайных чисел
 
-                for (; ; ) //запуск бесконечного цикла
+                while(true) //запуск бесконечного цикла
                 {
                     userTry = 0; //перед вводом числа выполнить условие для цикла ниже
                     while (userTry < 1 || userTry > 4) //пока введенное число меньше 1 или болше 4, повторять ввод числа
